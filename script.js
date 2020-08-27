@@ -1,5 +1,5 @@
 const main = document.querySelector('main');
-const voiceSelect = document.getElementById('voices');
+const voicesSelect = document.getElementById('voices');
 const textarea = document.getElementById('text');
 const readBtn = document.getElementById('read');
 const toggleBtn = document.getElementById('toggle');
@@ -68,7 +68,7 @@ function createBox(item) {
 
     box.innerHTML = `
         <img src="${image}" alt="${text}" />
-        <p class = "info">${text}</p>
+        <p class="info">${text}</p>
         `;
 
     box.addEventListener('click', () => {
@@ -86,7 +86,7 @@ function createBox(item) {
     // Init speech synth
     const message = new SpeechSynthesisUtterance();
 
-    // Init voices
+    // Store voices
     let voices = [];
 
     function getVoices() {
@@ -98,7 +98,7 @@ function createBox(item) {
         option.value = voice.name;
         option.innerText = `${voice.name} ${voice.lang}`;
 
-        voiceSelect.appendChild(option);
+        voicesSelect.appendChild(option);
         });
     }
 
@@ -131,7 +131,7 @@ function createBox(item) {
     );
 
     // Change voice
-    voiceSelect.addEventListener('change', setVoice);
+    voicesSelect.addEventListener('change', setVoice);
 
     // Read text button
     readBtn.addEventListener('click', () => {
